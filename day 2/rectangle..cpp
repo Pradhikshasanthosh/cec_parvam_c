@@ -27,4 +27,3 @@ double Rectangle::area() {
     cout << "Rectangle: " << length << " x " << width << endl;
     cout << "Area: " << area() << ", Perimeter: " << perimeter() << endl;
   }
-  
