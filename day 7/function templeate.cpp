@@ -34,7 +34,14 @@ int main(){
     Pair<string> p3("apple", "banana");
     cout<<"int pair:"; p1.display();
     cout<<"Max " << p1.getMax() << endl;
+    cout<<"double pair:"; p2.display();
+    cout<<"Max " << p2.getMax() << endl;
+    cout<<"string pair:"; p3.display();
+    cout<<"Max " << p3.getMax() << endl;
+    keyvalue<string, int> kv1("age", 30);
+    keyvalue<string, double> kv2("price", 19.99);   
+    cout<<"key value pairs:"<<endl;
+    kv1.display();
+    kv2.display();
     return 0;
-    
-
 }

@@ -1,33 +1,39 @@
-#include<iostream>
-#include<string>
+#include <iostream>
+#include <string>
 using namespace std;
-class product{
+
+class Product {
     private:
+    int id;
     string name;
     double price;
-    int id;
+
     public:
-    product() : name(""), price(0.0), id(0) {} // Default constructor to initialize member variables.
-    product(const string &n, double p, int i) : name(n), price(p), id(i) {}  
-    void display(){
-        cout<<"Name: "<<name<<endl;
-        cout<<"Price: "<<price<<endl;
-        cout<<"ID: "<<id<<endl;
+    Product() : id(0), name("N/A"),  price(0.0) {}
+
+    Product(int i, string n, double p) : id(i), name(n), price(p) {}
+
+    void display() const {
+        cout << "ID: " << id << " | " << name << " | $" << price << endl;
     }
 };
-int main(){
-    int count;
-    cout<<"Enter the number of products: "; 
-    cin>>count;
-    product* inventory = new product[count]; 
-    for(int i=0; i<count; i++){
-        inventory[i] = product("Product" + to_string(i+1), (i+1)*10.0, 100+i); 
-    }
-    cout<<"Product Inventory:"<<endl;
-    for(int i=0; i<count; i++){
-        inventory[i].display(); // Call the display method for each product in the inventory to output its information.
 
+int main() {
+    int count;
+    cout << "How many products? ";
+    cin >> count;
+
+    Product* inventory = new Product[count];
+
+    for (int i = 0; i < count; i++) {
+        inventory[i] = Product(100 + i, "Product-" + to_string(i+1), (i+1)* 10.00);
     }
-    delete[] inventory; // Deallocate the memory for the array of products to prevent memory leaks.
+
+    cout << "\nInventory:" << endl;
+    for(int i = 0; i < count; i++) {
+        inventory[i].display();
+    }
+
+    delete[] inventory;
     return 0;
 }
